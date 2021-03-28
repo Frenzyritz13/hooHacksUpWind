@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+        <title>Activity Chart</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    </head>
+
+	<body>
+        <div class= "chart-container" style="position: relative; height:10vh; width:90vw" >
+            <canvas id="chart"></canvas>
+            </div>
+        <script>
+
+var api_url = "https://smartwidget-ae5c7-default-rtdb.firebaseio.com/Website/DeviceId1";
+var counter_url ="https://smartwidget-ae5c7-default-rtdb.firebaseio.com/Website/ctr.json";
+var link;
+var arr_flex = [];
+var arr_timestamp = [];
+
+function getCounter(){    
+    fetch(counter_url).then(response=>{
+    return response.json();
+    }).then(counter=>{
+        console.log(counter);
+for(var i = 1; i <= counter; i++){
+    var str = i.toString();
+    var slash = "/"
+    link = api_url.concat(slash.concat(str.concat(".json")));
+
+    async function getData(){
+        const response = await fetch(link);
+        const data =await response.json();
+
+        const {acc, activity, flex, re, timestamp} = data;
+
+        arr_timestamp.push(timestamp);
+        arr_flex.push(flex);
+
+        var ctx = document.getElementById('chart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: arr_timestamp,
+        datasets: [{
+            label: 'Flex Activity',
+            pointRadius: 5,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgba(75, 192, 192, 0.5)',
+            pointHoverBorderColor: 'rgba(75, 192, 192, 1)',
+            pointHoverBorderWidth: 2,
+            data: arr_flex,
+            backgroundColor: ['rgba(75, 192, 192, 0.1)'],
+            borderColor: [
+            'rgba(75, 192, 192, 1)'],
+            borderWidth: 3
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+
+});
+
+
+        }
+        getData();
+    }//for loop
+})
+}
+
+getCounter();
+
+
+        </script>
+    </body>
+
+</html>    

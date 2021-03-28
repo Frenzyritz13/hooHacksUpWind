@@ -9,7 +9,7 @@
 	<body >
         <div class="sidebar">
           <div class="sidebar-brand">
-            <h2><span class="icon to be added"></span>UpWind</h2>
+            <h2><span><img src="calm.png" alt="" style="margin-top: 10px;"></span>UpWind</h2>
           </div>
           <div class="sidebar-menu">
             <ul>
@@ -18,8 +18,13 @@
                   <span><b>Statistics</b></span></a>
                 </li>
                 <li>
-                  <a href="chart.html"><span class= "icon to be added"></span>
-                    <span><b>Activity Charts</b></span></a>
+                  <a href="activity_chart.html" ><span class= "icon to be added"></span>
+                    <span><b>Charts</b></span></a>
+                    <ul class ="chart_class">
+                      <li style="margin-top: 30px;"><a href="activity_chart.html">Activity Chart</a></li>
+                      <li><a href="flex_chart.html">Flex Chart</a></li>
+                      <li><a href="acc_chart.html">Accelerometer Chart</a></li>
+                    </ul>
                   </li>
             </ul>
           </div>
@@ -31,11 +36,7 @@
                 <span class= "icon to be added"></span>
               </label>
               DASHBOARD
-              </h2>
-              <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" />
-              </div>
+              </h2><span><p><b>Last Updated: </p><p id = "latest_time"></b><p></p></span>
               <div class="user-wrapper">
                 <img src="user_image.png" width="40px" height="40px" alt="">
                 <div>
@@ -91,19 +92,6 @@
             </div>
           </main>
         </div>
-        <script src = "test.js">
-          //const api_url = "https://trialproject-55deb-default-rtdb.firebaseio.com/product.json";
-// async function getData(){
-//     const response = await fetch(api_url);
-//     const data =await response.json();
-
-//     document.getElementById("name").textContent= data.name;
-//     document.getElementById("price").textContent= data.price;
-//     document.getElementById("description").textContent= data.description;
-//}
-
-//getData();
-//setInterval(getData, 1000);
-        </script>
+        <script src = "main.js"></script>
 	</body>
 </html>
