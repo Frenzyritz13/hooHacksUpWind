@@ -1,0 +1,13 @@
+References:
+
+1)Line Awesome Icon Pack
+
+2)Chart.js
+
+3)Logo - FlatIcon https://www.flaticon.com/free-icon/calm_3220618?term=calm&page=1&position=5&page=1&position=5&related_id=3220618&origin=search
+
+4)Spin Kit Library for Progress Bar - https://github.com/ybq/Android-SpinKit
+
+5)Circular Image Library Android - https://github.com/hdodenhof/CircleImageView
+
+6)Google Fonts- https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap
